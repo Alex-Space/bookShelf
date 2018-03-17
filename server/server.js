@@ -36,10 +36,13 @@ app.get('/api/books', (req, res) => {
 });
 
 app.post('/api/book_update', (req, res) => {
-    const value = {
-        name:
-    };
-    Book.findOneAndUpdate(req.body._id, req.body)
+    Book.findOneAndUpdate(req.body._id, req.body, {new: true}, (err, doc) => {
+        if (err) return res.status(400).send(err);
+        res.json({
+            success: true,
+            doc
+        });
+    });
 });
 
 app.post('/api/book', (req, res) => {
