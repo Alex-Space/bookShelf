@@ -4,6 +4,7 @@ import {Switch, Route} from 'react-router-dom';
 import Home from './components/Home/home';
 import Layout from './hoc/layout';
 import BookView from './components/Books';
+import Login from './containers/Admin/login';
 
 const Routes = () => {
     return (
@@ -11,6 +12,7 @@ const Routes = () => {
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/books/:id" exact component={BookView} />
+                <Route path="/login" exact component={Login} />
             </Switch>
         </Layout>
     );
