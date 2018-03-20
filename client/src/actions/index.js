@@ -47,3 +47,13 @@ export function getBookWithRewiever(id) {
         });
     }
 }
+
+export function clearBookWithReviewer() {
+    return {
+        type: 'CLEAR_BOOK_W_REVIEWER',
+        payload: {
+            book: {},
+            reviewer: {}
+        }
+    };
+}

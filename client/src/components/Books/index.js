@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getBookWithRewiever} from '../../actions';
+import {getBookWithRewiever, clearBookWithReviewer} from '../../actions';
 
 class BookView extends Component {
 
     componentWillMount() {
         this.props.dispatch(getBookWithRewiever(this.props.match.params.id));
+    }
+
+    componentWillUnmount() {
+        this.props.dispatch(clearBookWithReviewer());
     }
 
     renderBooks = (books) => (
@@ -20,6 +24,20 @@ class BookView extends Component {
                 </div>
                 <div className="br_review">
                     {books.book.review}
+                </div>
+                <div className="br_box">
+                    <div className="left">
+                        <div>
+                            <span>Pages:</span> {books.book.pages}
+                        </div>
+                        <div>
+                            <span>Price:</span> {books.book.price}
+                        </div>
+                    </div>
+                    <div className="right">
+                        <span>Rating</span>
+                        <div>{books.book.rating}/5</div>
+                    </div>
                 </div>
             </div>
             : null
