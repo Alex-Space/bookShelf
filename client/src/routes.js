@@ -6,14 +6,16 @@ import Layout from './hoc/layout';
 import BookView from './components/Books';
 import Login from './containers/Admin/login';
 import Auth from './hoc/auth';
+import User from './components/Admin';
 
 const Routes = () => {
     return (
         <Layout>
             <Switch>
-                <Route path="/" exact component={Auth(Home)} />
-                <Route path="/books/:id" exact component={BookView} />
-                <Route path="/login" exact component={Login} />
+                <Route path="/" exact component={Auth(Home, null)} />
+                <Route path="/login" exact component={Auth(Login, false)} />
+                <Route path="/user" exact component={Auth(User, true)} />
+                <Route path="/books/:id" exact component={Auth(BookView)} />
             </Switch>
         </Layout>
     );

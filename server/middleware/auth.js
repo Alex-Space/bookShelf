@@ -7,7 +7,7 @@ const auth = (req, res, next) => {
         if (err) throw err;
         if (!user) return res.json({
             error: true,
-            message: 'Trying logout, but there is no user!'
+            // message: 'Trying logout, but there is no user!'
         });
 
         req.token = token;

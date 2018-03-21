@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {auth} from '../actions/index';
 
-export default function (ComposedClass) {
+export default function (ComposedClass, reload) {
     class AuthenticationCheck extends Component {
 
         state = {
@@ -17,9 +17,13 @@ export default function (ComposedClass) {
             this.setState({loading: false});
 
             if (!nextProps.user.login.isAuth) {
-
+                if (reload) {
+                    this.props.history.push('/login');
+                }
             } else {
-
+                if (reload === false) {
+                    this.props.history.push('/user');
+                }
             }
         }
 
@@ -28,7 +32,7 @@ export default function (ComposedClass) {
                 return <div className="loader">Loader...</div>
             }
             return(
-                <ComposedClass {...this.props} user=""/>
+                <ComposedClass {...this.props} user={this.props.user} />
             );
         }
     }
