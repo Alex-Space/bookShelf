@@ -19,7 +19,7 @@ const Routes = () => {
                 <Route path="/user" exact component={Auth(User, true)} />
                 <Route path="/user/add" exact component={Auth(AddReview, true)} />
                 <Route path="/books/:id" exact component={Auth(BookView, null)} />
-                <Route path="/user/user-reviews" exact component={Auth(UserPosts, true)} />
+                <Route path="/user/user_reviews" exact component={Auth(UserPosts, true)} />
             </Switch>
         </Layout>
     );
