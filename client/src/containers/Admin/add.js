@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {addBook, clearNewBook} from '../../actions';
+import {addBook, clearNewBook} from '../../actions/index';
 
 class AddBook extends Component {
 

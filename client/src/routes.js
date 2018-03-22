@@ -7,7 +7,7 @@ import BookView from './components/Books';
 import Login from './containers/Admin/login';
 import Auth from './hoc/auth';
 import User from './components/Admin';
-import AddReview from './components/Admin/add';
+import AddReview from './containers/Admin/add';
 import UserPosts from './components/Admin/userPosts';
 
 const Routes = () => {
