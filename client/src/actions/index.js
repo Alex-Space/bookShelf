@@ -23,7 +23,7 @@ export function getBooks(
     };
 }
 
-export function getBookWithRewiever(id) {
+export function getBookWithReviewer(id) {
     const request = axios.get(`/api/getBook?id=${id}`);
 
     return (dispatch) => {
@@ -58,6 +58,22 @@ export function clearBookWithReviewer() {
     };
 }
 
+export function addBook(book) {
+    const request = axios.post('/api/book', book)
+        .then(response => response.data);
+    return {
+        type: 'ADD_BOOK',
+        payload: request
+    };
+}
+
+export function clearNewBook() {
+    return {
+        type: 'CLEAR_NEW_BOOK',
+        payload: {}
+    };
+}
+
 // USER //
 
 export function loginUser({email, password}) {
@@ -78,3 +94,4 @@ export function auth() {
         payload: request
     };
 }
+
