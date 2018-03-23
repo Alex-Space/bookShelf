@@ -86,7 +86,7 @@ app.get('/api/auth', auth, (req, res) => {
 // POST //
 
 app.post('/api/book_update', (req, res) => {
-    Book.findOneAndUpdate(req.body._id, req.body, {new: true}, (err, doc) => {
+    Book.findByIdAndUpdate(req.body._id, req.body, {new: true}, (err, doc) => {
         if (err) return res.status(400).send(err);
         res.json({
             success: true,
@@ -152,7 +152,7 @@ app.post('/api/login', (req, res) => {
 app.delete('/api/book_delete', (req, res) => {
     const id = req.query.id;
 
-    Book.findOneAndRemove(id, (err, doc) => {
+    Book.findByIdAndRemove(id, (err, doc) => {
         if (err) return res.status(400).send(err);
         res.json(true);
     });
