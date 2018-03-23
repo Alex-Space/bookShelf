@@ -157,3 +157,22 @@ export function getUsers() {
         payload: request
     }
 }
+
+export function userRegister(user, userList) {
+    const request = axios.post(`/api/register`, user);
+
+    return (dispatch) => {
+        request.then(({data}) => {
+            const users = data.success ? [...userList, data.user] : userList;
+            const response = {
+                success: data.success,
+                users
+            };
+
+            dispatch({
+                type: 'USER_REGISTER',
+                payload: response
+            });
+        });
+    }
+}
